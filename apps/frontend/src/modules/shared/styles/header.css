@@ -1,0 +1,59 @@
+.menu-icon {
+  width: 25px;
+  height: 3.5px;
+  position: relative;
+  border-radius: 2px;
+
+  background-color: white;
+}
+
+.menu-icon::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: inherit;
+  width: 100%;
+
+  bottom: 8px;
+  background-color: inherit;
+  border-radius: inherit;
+}
+
+.menu-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: inherit;
+  width: 100%;
+
+  top: 8px;
+  background-color: inherit;
+  border-radius: inherit;
+}
+
+.add-icon {
+  position: relative;
+  width: 25px;
+  height: 25px;
+}
+
+.add-icon::before,
+.add-icon::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 2.5px;
+  background-color: white;
+  width: 3.5px;
+  height: 20px;
+}
+
+.add-icon::before {
+  right: 0;
+  transform: translateX(-11px);
+}
+
+.add-icon::after {
+  left: 0;
+  transform: translateX(10px) rotate(90deg);
+}

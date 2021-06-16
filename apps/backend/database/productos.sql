@@ -1,0 +1,16 @@
+CREATE TABLE products(
+idProduct INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+name VARCHAR(100),
+format VARCHAR(100),
+category VARCHAR(100),
+subcategory VARCHAR(100),
+mark VARCHAR(100),
+price INT,
+stock INT
+);
+
+CREATE TABLE lots(
+idLot INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+id INT,
+type VARCHAR(25))
+)
