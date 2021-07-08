@@ -9,8 +9,8 @@ class ProductsController {
 
   async insert(req: Request, res: Response) {
     const status = await productsRepository.insert(req.body);
-    if (!status) return res.status(500).end();
-    res.status(204).end();
+    if (!status) return res.sendStatus(500);
+    res.sendStatus(204);
   }
 }
 

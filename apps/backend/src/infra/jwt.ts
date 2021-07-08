@@ -15,8 +15,12 @@ class JWT {
   }
 
   public decryptToken(token: any): Promise<any> {
-    return new Promise((resolve) => {
-      resolve(verify(token, this.SECRET));
+    return new Promise((resolve, reject) => {
+      try {
+        resolve(verify(token, this.SECRET));
+      } catch (err: any) {
+        reject(null);
+      }
     });
   }
 }

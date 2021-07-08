@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ProductModel } from "Infra/models/product";
+import { ProductModel } from "shared";
 import { productsService } from "modules/products/services/products.service";
 
 export const useProducts = () => {

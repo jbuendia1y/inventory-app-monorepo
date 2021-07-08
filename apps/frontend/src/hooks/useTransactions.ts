@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { transactionsService } from "modules/transactions/services/transactions.service";
+import { PurchaseModel, SaleModel } from "shared";
 
 export const useTransactions = () => {
   const [transactions, setTransactions] = useState({
-    purchases: [] as any[],
-    sales: [] as any[],
+    purchases: [] as PurchaseModel[],
+    sales: [] as SaleModel[],
   });
   const [loading, setLoading] = useState(false);
 

@@ -1,4 +1,4 @@
-import { PurchaseModel } from "Infra/models/transactions";
+import { PurchaseModel } from "shared";
 
 export const PurchasesTable = ({
   purchases,
@@ -19,14 +19,14 @@ export const PurchasesTable = ({
       </thead>
       <tbody>
         {purchases.map((item) => (
-          <>
-            <tr>{item.idPurchase}</tr>
-            <tr>{item.seller}</tr>
-            <tr>{item.idProduct}</tr>
-            <tr>{item.amount}</tr>
-            <tr>{item.price}</tr>
-            <tr>{item.date}</tr>
-          </>
+          <tr key={purchases.indexOf(item)}>
+            <td>{item.idPurchase}</td>
+            <td>{item.seller}</td>
+            <td>{item.idProduct}</td>
+            <td>{item.amount}</td>
+            <td>{item.cost}</td>
+            <td>{item.date}</td>
+          </tr>
         ))}
       </tbody>
     </table>

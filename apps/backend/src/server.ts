@@ -8,6 +8,7 @@ import AuthRoutes from "apiServices/auth/auth.routes";
 import ProductsRoutes from "apiServices/products/products.routes";
 import TransactionsRouters from "apiServices/transactions/transactions.routes";
 import LotsRoutes from "apiServices/lots/lots.routes";
+import ReportsRoutes from "apiServices/reports/reports.routes";
 
 class Server {
   public app: Express;
@@ -35,7 +36,6 @@ class Server {
     this.app.use(urlencoded({ extended: true }));
     this.app.use(json());
     if (process.env.NODE_ENV === "production") {
-      console.log("a");
       this.app.use(express.static(join(__dirname, "../../frontend/build")));
     }
   }
@@ -45,6 +45,7 @@ class Server {
     this.app.use("/products", ProductsRoutes);
     this.app.use("/lots", LotsRoutes);
     this.app.use("/transactions", TransactionsRouters);
+    this.app.use("/reports", ReportsRoutes);
   }
 }
 

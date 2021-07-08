@@ -2,7 +2,7 @@ import { usersRepository } from "repositories/users.repository";
 import { rolesRepository } from "repositories/roles.repository";
 import { jwt } from "infra/jwt";
 import { password } from "infra/password";
-import { UserModel } from "infra/models/user";
+import { UserModel } from "shared";
 
 interface AuthCredentials {
   email: string;
@@ -19,8 +19,7 @@ class AuthService {
 
   public async login(data: AuthCredentials): Promise<UserLog | boolean> {
     const user = await usersRepository.findByEmail(data.email);
-
-    if (!user.password) return false;
+    if (!user) return false;
 
     const validate = await this.Password.validate(data.password, user.password);
     if (!validate) return false;

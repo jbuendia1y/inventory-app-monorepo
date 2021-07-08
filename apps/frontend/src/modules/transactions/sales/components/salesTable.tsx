@@ -1,4 +1,4 @@
-import { SaleModel } from "Infra/models/transactions";
+import { SaleModel } from "shared";
 
 export const SalesTable = ({ sales }: { sales: SaleModel[] }) => {
   return <table></table>;

@@ -8,7 +8,7 @@ class Connection {
   constructor() {
     const token = localStorage.getItem("token");
     if (token) {
-      this.headers = { ...this.headers, token: `Bearer ${token}` };
+      this.headers = { ...this.headers, authorization: `Bearer ${token}` };
     }
   }
 
@@ -21,7 +21,11 @@ class Connection {
   }
 
   public async get(path: string) {
-    return await fetch(this.baseURL + path).then((res) => res.json());
+    return await fetch(this.baseURL + path, {
+      headers: this.headers,
+    })
+      .then((res) => res.json())
+      .catch((err) => err);
   }
 }
 

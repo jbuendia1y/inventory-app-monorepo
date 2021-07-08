@@ -1,5 +1,5 @@
 import { excute } from "infra/database";
-import { ProductModel } from "infra/models/inventory";
+import { ProductModel } from "shared";
 
 class ProductsRepository {
   public async insert(product: ProductModel) {

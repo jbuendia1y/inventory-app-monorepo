@@ -13,7 +13,10 @@ export const excute = async (
 
     let data: any;
 
-    if (payload.query.startsWith("INSERT")) {
+    if (
+      payload.query.startsWith("INSERT") ||
+      payload.query.startsWith("UPDATE")
+    ) {
       const [rows] = await connection.query(payload.query, payload.values);
       data = rows;
     } else {

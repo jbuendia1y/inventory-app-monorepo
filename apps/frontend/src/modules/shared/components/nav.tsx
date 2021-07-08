@@ -1,30 +1,33 @@
 import { AuthContext } from "context/auth.context";
-import { navContext } from "context/toggleNav.context";
+import { toogleNav } from "modules/shared/helpers";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const WithLogin = () => {
-  const { setNavState } = useContext(navContext);
-
   return (
     <>
       <li>
-        <Link to="/products" onClick={() => setNavState(false)}>
+        <Link to="/dashboard" onClick={() => toogleNav()}>
+          DashBoard
+        </Link>
+      </li>
+      <li>
+        <Link to="/products" onClick={() => toogleNav()}>
           Products
         </Link>
       </li>
       <li>
-        <Link to="/transactions" onClick={() => setNavState(false)}>
+        <Link to="/transactions" onClick={() => toogleNav()}>
           Transactions
         </Link>
       </li>
       <li>
-        <Link to="/transactions/purchases" onClick={() => setNavState(false)}>
+        <Link to="/transactions/purchases" onClick={() => toogleNav()}>
           Purchases
         </Link>
       </li>
       <li>
-        <Link to="/transactions/sales" onClick={() => setNavState(false)}>
+        <Link to="/transactions/sales" onClick={() => toogleNav()}>
           Sales
         </Link>
       </li>
@@ -33,11 +36,9 @@ const WithLogin = () => {
 };
 
 const WithOutLogin = () => {
-  const { setNavState } = useContext(navContext);
-
   return (
     <li>
-      <Link to="/login" onClick={() => setNavState(false)}>
+      <Link to="/login" onClick={() => toogleNav()}>
         Login
       </Link>
     </li>

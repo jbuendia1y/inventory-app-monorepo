@@ -3,10 +3,10 @@ import { transactionController } from "./transactions.controller";
 
 const router = Router();
 
-router.get("/purchases", transactionController.allPurchases);
-router.get("/sales", transactionController.allSales);
+router.get("/purchases", transactionController.purchases);
+router.get("/sales", transactionController.sales);
 
-router.post("/purchases", transactionController.purchase);
-router.post("/sales", transactionController.sale);
+router.post("/purchases", transactionController.purchases);
+router.post("/sales", transactionController.sales);
 
 export default router;

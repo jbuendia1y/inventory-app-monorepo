@@ -1,5 +1,5 @@
 import { excute } from "infra/database";
-import { UserModel } from "infra/models/user";
+import { UserModel } from "shared";
 
 class UsersRepository {
   public async insert(user: {

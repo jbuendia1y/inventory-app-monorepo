@@ -37,23 +37,23 @@
   height: 25px;
 }
 
-.add-icon::before,
-.add-icon::after {
+.add-icon div:nth-child(1),
+.add-icon div:nth-child(2) {
   content: "";
   position: absolute;
   display: block;
-  top: 2.5px;
+  top: 6.5px;
   background-color: white;
   width: 3.5px;
   height: 20px;
 }
 
-.add-icon::before {
-  right: 0;
+.add-icon div:nth-child(1) {
+  right: 4px;
   transform: translateX(-11px);
 }
 
-.add-icon::after {
-  left: 0;
+.add-icon div:nth-child(2) {
+  left: 4px;
   transform: translateX(10px) rotate(90deg);
 }

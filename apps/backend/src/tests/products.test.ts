@@ -7,10 +7,10 @@ const api = supertest(app);
 test("Get All Products", async () => {
   const res = await api
     .get("/products")
-    .expect(200)
-    .expect("Content-Type", /application\/json/);
+    .expect(401)
+    .expect("Content-Type", /text\/plain/);
 
-  expect((res.body as []).length > 0).toBe(true);
+  expect(res.statusCode).toBe(401);
 });
 
 afterAll(() => {

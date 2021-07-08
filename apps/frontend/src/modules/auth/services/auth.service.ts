@@ -7,10 +7,10 @@ class AuthService {
       const user = await res.json();
       connection.headers = {
         ...connection.headers,
-        token: `Bearer ${user.token}`,
+        authorization: `Bearer ${user.token}`,
       };
       return user;
-    } else return undefined;
+    } else throw new Error("No authorizado");
   }
 
   async register(data: any) {

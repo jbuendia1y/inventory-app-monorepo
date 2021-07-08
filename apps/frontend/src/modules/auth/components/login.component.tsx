@@ -1,39 +1,53 @@
-import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import { FormEvent, useContext, createRef } from "react";
 import { authService } from "modules/auth/services/auth.service";
 import { AuthContext } from "context/auth.context";
+import { useHistory } from "react-router-dom";
 
 export const LoginComponent = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [session, setSession] = useState(false);
+  const session = createRef<HTMLInputElement>();
+  const email = createRef<HTMLInputElement>();
+  const password = createRef<HTMLInputElement>();
+
   const { setUser } = useContext(AuthContext);
+  const history = useHistory();
 
-  const handleValues = (e: ChangeEvent<HTMLInputElement>) => {
-    const fields: any = {
-      email: setEmail,
-      password: setPassword,
-      session: setSession,
-    };
-    const id = e.target.id;
-    const value = e.target.value;
-    if (!fields[id]) return;
+  const handleErrors = (err: boolean, message?: string) => {
+    if (err && email.current?.classList.contains("text-red-700")) return;
+    if (!err && !email.current?.classList.contains("text-red-700")) return;
 
-    fields[id](value);
+    email.current?.classList.toggle("text-red-700");
+    email.current?.classList.toggle("border-red-700");
+    password.current?.classList.toggle("text-red-700");
+    password.current?.classList.toggle("border-red-700");
+
+    if (!message) return;
   };
 
-  const submit = async (e: FormEvent<HTMLFormElement>) => {
+  const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const data = {
-      email,
-      password,
+    const inputs = {
+      email: (email.current as HTMLInputElement).value,
+      password: (password.current as HTMLInputElement).value,
+      session: (session.current as HTMLInputElement).checked,
     };
 
-    const res = await authService.login(data);
-    if (res) {
-      if (session) localStorage.setItem("token", res.token);
-      setUser(res);
+    if (inputs.email.length === 0 || inputs.password.length === 0) {
+      handleErrors(true);
+      return;
     }
+
+    authService
+      .login({ email: inputs.email, password: inputs.password })
+      .then((res) => {
+        if (inputs.session) localStorage.setItem("token", res.token);
+        setUser(res);
+        history.push("/dashboard");
+        handleErrors(false);
+      })
+      .catch((err) => {
+        handleErrors(true, err.message);
+      });
   };
 
   const inputStyles =
@@ -52,11 +66,11 @@ export const LoginComponent = () => {
           Email
         </label>
         <input
-          type="text"
+          type={"email"}
           name="email"
           id="email"
           className={inputStyles}
-          onChange={handleValues}
+          ref={email}
         />
       </div>
       <div className={formFieldStyles}>
@@ -68,17 +82,12 @@ export const LoginComponent = () => {
           name="password"
           id="password"
           className={inputStyles}
-          onChange={handleValues}
+          ref={password}
         />
       </div>
       <div className="flex flex-row-reverse">
         <label htmlFor="session">Save Sessión?</label>
-        <input
-          type="checkbox"
-          name="session"
-          id="session"
-          onChange={handleValues}
-        />
+        <input type="checkbox" ref={session} name="session" id="session" />
       </div>
       <button
         type="submit"
@@ -86,6 +95,7 @@ export const LoginComponent = () => {
       >
         Iniciar Sessión
       </button>
+      <span id="error" className="text-red-700 font-bold"></span>
     </form>
   );
 };

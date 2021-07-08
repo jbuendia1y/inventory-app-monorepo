@@ -18,7 +18,7 @@ export const Products = (
     ];
     const data = req.body;
     fields.map((field) => {
-      if (typeof data[field] === "undefined") return res.status(400).end();
+      if (typeof data[field] === "undefined") return res.sendStatus(400);
     });
   }
 

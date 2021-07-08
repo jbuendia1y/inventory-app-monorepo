@@ -1,5 +1,5 @@
 import { connection } from "Infra/connection";
-import { ProductModel } from "Infra/models/product";
+import { ProductModel } from "shared";
 
 class ProductsService {
   public products: ProductModel[] = [];

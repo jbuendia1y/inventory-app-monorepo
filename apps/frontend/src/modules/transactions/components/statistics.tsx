@@ -1,4 +1,4 @@
-import { TransactionsModel } from "Infra/models/transactions";
+import { TransactionsModel } from "shared";
 
 export const StatisticsComponent = ({
   transactions,

@@ -12,9 +12,13 @@
     "dev": "npm run start --workspace=frontend",
     "dev:api": "npm run dev --workspace=backend",
     "build": "npm run build --workspaces",
-    "test": "npm run test --workspaces"
+    "test": "npm run test --workspaces",
+    "test:api": "npm run test --workspace=backend"
   },
   "keywords": [],
   "author": "Joaquín Buendía",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react-apexcharts": "^1.3.9"
+  }
 }

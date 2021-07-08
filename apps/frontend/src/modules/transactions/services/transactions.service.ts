@@ -13,6 +13,12 @@ class TransactionsService {
 
     return this.transactions;
   }
+
+  async insert(data: any, type: "purchases" | "sales") {
+    const url = "/transactions/" + type;
+    const res = await connection.post(url, data);
+    return res.ok;
+  }
 }
 
 export const transactionsService = new TransactionsService();
