@@ -2,17 +2,20 @@ import { useContext, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connection } from "Infra/connection";
 
-import { AuthPage } from "modules/auth/auth.page";
-import { PageNotFound } from "modules/pageNotFound/pageNotFound";
-import { ProductsPage } from "modules/products/products.page";
-import { TransactionsPage } from "modules/transactions/transactions.page";
-
+// Contexts
 import { AuthContext } from "context/auth.context";
-import { PurchasesPage } from "modules/transactions/purchases/purchases.page";
-import { SalesPage } from "modules/transactions/sales/sales.page";
-import { DashBoardPage } from "modules/dashboard/dashBoard.page";
 
-export const Routes = () => {
+// Pages
+import PageNotFound from "modules/pageNotFound/pageNotFound";
+import AuthPage from "modules/auth/auth.page";
+import DashBoardPage from "modules/dashboard/dashBoard.page";
+
+import ProductsPage from "modules/products/products.page";
+import TransactionsPage from "modules/transactions/transactions.page";
+import PurchasesPage from "modules/transactions/purchases/purchases.page";
+import SalesPage from "modules/transactions/sales/sales.page";
+
+const Routes = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -60,3 +63,5 @@ export const Routes = () => {
     </Switch>
   );
 };
+
+export default Routes;

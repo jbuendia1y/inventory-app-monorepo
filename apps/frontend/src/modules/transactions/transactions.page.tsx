@@ -3,7 +3,7 @@ import { LoadingComponent } from "modules/shared/components/loading";
 
 import { StatisticsComponent } from "./components/statistics";
 
-export const TransactionsPage = () => {
+const TransactionsPage = () => {
   const { loading, purchases, sales } = useTransactions();
   return (
     <>
@@ -15,3 +15,5 @@ export const TransactionsPage = () => {
     </>
   );
 };
+
+export default TransactionsPage;

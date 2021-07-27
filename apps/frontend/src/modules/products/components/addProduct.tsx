@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 
-export const AddProductComponent = () => {
+const AddProductComponent = () => {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
   };
@@ -39,9 +39,16 @@ export const AddProductComponent = () => {
         <button type="submit">Add Product</button>
       </form>
       <div>
-        <button onClick={(e) => e.preventDefault()}>Download Template</button>
+        <a
+          href={"http://localhost:4000/static/products-template.xlsx"}
+          download="Products Template.xlsx"
+        >
+          Download Template
+        </a>
         <button type="button">From Excel</button>
       </div>
     </div>
   );
 };
+
+export default AddProductComponent;

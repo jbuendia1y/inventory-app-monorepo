@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;800;900&display=swap");
+
+:root {
+  --primary: #01579b;
+  --primary-light: #4f83cc;
+  --primary-dark: #002f6c;
+
+  --text-on-primary: #ffffff;
+  --text-on-secondary: #000000;
+
+  --text-on-primary-light: #000000;
+
+  --secondaty: #f9a825;
+  --secondary-light: #ffd95a;
+  --secondary-dark: #c17900;
+}
+
+body {
+  font-family: "Inter", "sans-serif";
+}
+
+@media screen and (min-width: 1240px) {
+  body {
+    min-height: 100vh;
+    overflow-y: hidden;
+  }
+}

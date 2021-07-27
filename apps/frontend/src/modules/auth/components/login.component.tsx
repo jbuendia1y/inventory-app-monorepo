@@ -3,7 +3,7 @@ import { authService } from "modules/auth/services/auth.service";
 import { AuthContext } from "context/auth.context";
 import { useHistory } from "react-router-dom";
 
-export const LoginComponent = () => {
+const LoginComponent = () => {
   const session = createRef<HTMLInputElement>();
   const email = createRef<HTMLInputElement>();
   const password = createRef<HTMLInputElement>();
@@ -99,3 +99,5 @@ export const LoginComponent = () => {
     </form>
   );
 };
+
+export default LoginComponent;

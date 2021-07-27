@@ -3,7 +3,7 @@ class Connection {
     "Content-Type": "application/json",
   };
 
-  private baseURL: string = "http://localhost:4000";
+  public baseURL: string = "http://localhost:4000";
 
   constructor() {
     const token = localStorage.getItem("token");

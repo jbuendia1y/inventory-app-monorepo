@@ -1,5 +1,6 @@
 import { excute } from "infra/database";
 
+// Save Report in DB
 const writeReport = async (data: any, use?: boolean) => {
   const { type } = data;
   const setReport = async ({ idProduct, date, type }: any) => {
@@ -11,10 +12,11 @@ const writeReport = async (data: any, use?: boolean) => {
 
     data[type] = 1;
 
-    return await excute({
+    await excute({
       query: `INSERT INTO ${type} SET ?`,
       values: data,
     });
+    return "USE TODAY";
   };
 
   if (!use) {
@@ -36,12 +38,12 @@ class Repository {
 
   constructor(table: string) {
     this.table = table;
-    const date = new Date().getUTCDate();
-    const query = `SELECT day(date),month(date),year(date) FROM ${this.table}`;
+    const date = new Date().toJSON().split("T")[0].split("-");
+    const query = `SELECT day(date),month(date),year(date) FROM ${this.table} WHERE year(date) = ? AND month(date) = ? AND day(date) = ?`;
     excute(
       {
         query,
-        values: [date],
+        values: [date[0], date[1], date[2]],
       },
       true
     ).then((res) => {
@@ -53,8 +55,10 @@ class Repository {
     return await excute({ query: "SELECT * FROM " + this.table });
   }
 
+  // Save Transaction by Type and Save Report
   public async insert(data: any) {
-    await writeReport(data, this.usedToday);
+    const used = await writeReport(data, this.usedToday);
+    if (typeof used === "string") this.usedToday = true;
     return await excute({
       query: `INSERT INTO ${this.table} SET ?`,
       values: data,

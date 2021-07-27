@@ -6,21 +6,21 @@ export const useProducts = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([] as ProductModel[]);
 
-  useEffect(() => {
-    setLoading(true);
-    if (products.length === 0) {
-      if (productsService.products.length === 0) {
-        productsService.getAll().then((res) => {
-          setProducts(res);
-          setLoading(false);
-        });
-      } else {
-        setProducts(productsService.products);
+  const fetchData = () => {
+    if (productsService.products.length === 0) {
+      productsService.getAll().then((res) => {
+        setProducts(res);
         setLoading(false);
-      }
+      });
     } else {
+      setProducts(productsService.products);
       setLoading(false);
     }
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    fetchData();
   }, [products]);
 
   return { products, loading };

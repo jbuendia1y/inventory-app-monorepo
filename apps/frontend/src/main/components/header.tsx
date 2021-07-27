@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "context/auth.context";
 import { toogleNav } from "modules/shared/helpers";
+
 import "../styles/header.css";
 
-export const HeaderComponent = () => {
+const HeaderComponent = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <header className="bg-blue-700 h-12 pt-1 flex items-center">
+    <header className="main-header bg-blue-700 h-12 pt-1 flex items-center">
       {user ? (
         <>
           <button
@@ -26,3 +27,5 @@ export const HeaderComponent = () => {
     </header>
   );
 };
+
+export default HeaderComponent;

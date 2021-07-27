@@ -1,10 +1,10 @@
-import { SideNavComponent } from "modules/shared/components/sidenav";
+import MainComponent from "main/main.page";
 import { AuthContextProvider } from "context/auth.context";
 
 function App() {
   return (
     <AuthContextProvider>
-      <SideNavComponent />
+      <MainComponent />
     </AuthContextProvider>
   );
 }

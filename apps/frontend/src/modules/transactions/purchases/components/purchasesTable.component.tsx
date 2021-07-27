@@ -1,34 +1,20 @@
-import { PurchaseModel } from "shared";
+import type { PurchaseModel } from "shared";
+import Table from "modules/shared/components/table";
 
-export const PurchasesTable = ({
-  purchases,
-}: {
-  purchases: PurchaseModel[];
-}) => {
+const PurchasesTable = ({ purchases }: { purchases: PurchaseModel[] }) => {
+  const fieldsTable = ["id", "Provider", "IdProduct", "Amount", "Cost", "Date"];
+  const fieldsData = [
+    "idPurchase",
+    "provider",
+    "idProduct",
+    "amount",
+    "cost",
+    "date",
+  ];
+
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>Seller</th>
-          <th>IdProduct</th>
-          <th>Amount</th>
-          <th>Price</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        {purchases.map((item) => (
-          <tr key={purchases.indexOf(item)}>
-            <td>{item.idPurchase}</td>
-            <td>{item.seller}</td>
-            <td>{item.idProduct}</td>
-            <td>{item.amount}</td>
-            <td>{item.cost}</td>
-            <td>{item.date}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <Table data={purchases} fieldsData={fieldsData} fieldsTable={fieldsTable} />
   );
 };
+
+export default PurchasesTable;

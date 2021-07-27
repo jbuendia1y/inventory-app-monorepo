@@ -1,8 +1,8 @@
 import { useTransactions } from "hooks/useTransactions";
 import { LoadingComponent } from "modules/shared/components/loading";
-import { PurchasesTable } from "./components/purchasesTable.component";
+import PurchasesTable from "./components/purchasesTable.component";
 
-export const PurchasesPage = () => {
+const PurchasesPage = () => {
   const { loading, purchases } = useTransactions();
   return (
     <>
@@ -14,3 +14,5 @@ export const PurchasesPage = () => {
     </>
   );
 };
+
+export default PurchasesPage;

@@ -20,6 +20,7 @@ export const useTransactions = () => {
         transactionsService.transactions.sales.length === 0
       ) {
         transactionsService.getAllTransactions().then((res) => {
+          transactionsService.transactions = res;
           setTransactions({
             purchases: res.purchases,
             sales: res.sales,
@@ -28,10 +29,9 @@ export const useTransactions = () => {
         });
       } else {
         setTransactions(transactionsService.transactions);
+        setLoading(false);
       }
-    } else {
-      setLoading(false);
-    }
+    } else setLoading(false);
   }, [transactions.sales.length, transactions.purchases.length]);
 
   return { ...transactions, loading };

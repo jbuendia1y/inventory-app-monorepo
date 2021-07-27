@@ -13,7 +13,8 @@
     "dev:api": "npm run dev --workspace=backend",
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces",
-    "test:api": "npm run test --workspace=backend"
+    "test:api": "npm run test --workspace=backend",
+    "eject": "npm run eject --workspace=frontend"
   },
   "keywords": [],
   "author": "Joaquín Buendía",

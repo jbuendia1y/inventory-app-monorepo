@@ -1,0 +1,8 @@
+.main-nav {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+}
+
+.main-nav p {
+  background-color: var(--primary-dark);
+}

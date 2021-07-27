@@ -6,9 +6,8 @@ import { productsController } from "./products.controller";
 const router = Router();
 
 router.use(token);
-router.use(Products);
 
 router.get("/", productsController.all);
-router.post("/", productsController.insert);
+router.post("/", Products, productsController.insert);
 
 export default router;

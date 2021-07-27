@@ -10,7 +10,7 @@ class TransactionsService {
     const purchases = await connection.get("/transactions/purchases");
     const sales = await connection.get("/transactions/sales");
     this.transactions = { purchases, sales };
-
+    console.log(this.transactions);
     return this.transactions;
   }
 

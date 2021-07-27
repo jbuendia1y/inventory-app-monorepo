@@ -1,0 +1,4 @@
+.thead__row {
+  background-color: var(--primary-light);
+  color: var(--text-on-primary-light);
+}

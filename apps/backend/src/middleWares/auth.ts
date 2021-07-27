@@ -32,8 +32,8 @@ export const token = async (
   if (!req.headers.authorization) return res.sendStatus(401);
   const token = req.headers.authorization.split(" ")[1];
 
-  const user = await jwt.decryptToken(token);
+  const user = await jwt.decryptToken(token).catch((err) => err.message);
 
-  if (user) return next();
+  if (typeof user !== "string") return next();
   else return res.sendStatus(401);
 };

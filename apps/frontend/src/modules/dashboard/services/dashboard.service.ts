@@ -2,8 +2,10 @@ import { connection } from "Infra/connection";
 
 class DashboardService {
   async fetchReports() {
-    const data = await connection.get("/reports");
-    console.log(data);
+    console.log("aaaaaaaaaaaaaaa");
+    const data = await connection.get("/reports").catch((err) => err.message);
+    console.log(data, "gaaaaaaa");
+    if (typeof data === "string") throw new Error(data);
     return data;
   }
 }

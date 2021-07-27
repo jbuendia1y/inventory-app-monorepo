@@ -1,9 +1,11 @@
-import { LoginComponent } from "./components/login.component";
+import LoginComponent from "./components/login.component";
 
-export const AuthPage = () => {
+const AuthPage = () => {
   return (
     <div className="mt-32">
       <LoginComponent />
     </div>
   );
 };
+
+export default AuthPage;

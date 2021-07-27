@@ -11,7 +11,7 @@ class ProductsRepository {
 
   public async getAll(): Promise<ProductModel[]> {
     return await excute({
-      query: "SELECT * FROM products ORDER BY idProduct ASC;",
+      query: "SELECT * FROM products ORDER BY idProduct ASC",
     });
   }
 

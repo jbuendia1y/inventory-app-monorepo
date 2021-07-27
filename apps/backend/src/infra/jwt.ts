@@ -19,7 +19,7 @@ class JWT {
       try {
         resolve(verify(token, this.SECRET));
       } catch (err: any) {
-        reject(null);
+        reject(err);
       }
     });
   }

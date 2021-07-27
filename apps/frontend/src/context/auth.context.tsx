@@ -11,7 +11,7 @@ export function AuthContextProvider(props: any) {
   const token = localStorage.getItem("token");
   if (token) userBase = {};
   const [user, setUser] = useState(userBase as UserModel | undefined);
-  console.log("render");
+
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       {props.children}

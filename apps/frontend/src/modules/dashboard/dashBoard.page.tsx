@@ -1,7 +1,7 @@
-import { PurchasesGraphic } from "./components/purchasesGraphic";
-/* import { useReports } from "hooks/useReports"; */
+import { MainGraphic } from "./components/mainGraphic";
 
-export const DashBoardPage = () => {
-  /* const { loading, reports } = useReports(); */
-  return <PurchasesGraphic />;
+const DashBoardPage = () => {
+  return <MainGraphic />;
 };
+
+export default DashBoardPage;

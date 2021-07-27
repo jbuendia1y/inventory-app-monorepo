@@ -29,6 +29,7 @@ class Server {
 
   private config() {
     this.app.set("PORT", PORT);
+    this.app.use("/static", express.static(join(__dirname, "static")));
   }
 
   private middleWares() {

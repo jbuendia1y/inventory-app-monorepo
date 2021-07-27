@@ -1,3 +1,4 @@
+/* ---- PRODUCTS ---- */
 export interface ProductModel {
   idProduct: number;
   name: string;
@@ -15,6 +16,8 @@ export interface LotModel {
   type: string;
 }
 
+/* ---- TRANSACTIONS ---- */
+
 export interface TransactionsModel {
   purchases: PurchaseModel[];
   sales: SaleModel[];
@@ -22,11 +25,11 @@ export interface TransactionsModel {
 
 export interface PurchaseModel {
   idPurchase: number;
-  seller: string;
+  provider: string;
   idProduct: number;
   amount: number;
   cost: number;
-  date: number;
+  date: string;
 }
 
 export interface SaleModel {
@@ -35,5 +38,13 @@ export interface SaleModel {
   idProduct: number;
   amount: number;
   price: number;
-  date: number;
+  date: string;
+}
+
+/* ---- REPORTS ---- */
+
+export interface ReportModel {
+  purchases: number;
+  sales: number;
+  year: number;
 }

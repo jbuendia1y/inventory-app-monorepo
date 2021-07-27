@@ -9,9 +9,10 @@ export const AddPurchaseComponent = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <input type="text" name="product" />
-        <input type="text" name="client" />
+        <input type="text" name="provider" />
         <input type="number" name="amount" />
         <input type="number" name="cost" />
+        <input type="date" name="date" />
         <button type="submit"></button>
       </form>
     </div>
