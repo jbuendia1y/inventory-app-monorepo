@@ -1,11 +1,13 @@
-import MainComponent from "main/main.page";
-import { AuthContextProvider } from "context/auth.context";
+import "./App.scss";
+import Header from "./components/Header";
+import Routes from "./components/Routes";
 
 function App() {
   return (
-    <AuthContextProvider>
-      <MainComponent />
-    </AuthContextProvider>
+    <div className="App">
+      <Header />
+      <Routes />
+    </div>
   );
 }
 
