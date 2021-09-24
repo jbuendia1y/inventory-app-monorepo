@@ -2,8 +2,10 @@
   border-radius: 5px;
   overflow: hidden;
 
+  background-color: var(--bg-primary);
+
   max-width: 300px;
-  box-shadow: 1px 1px 10px rgba(170, 170, 170, 0.8);
+  box-shadow: var(--shadow-components);
 
   &__image {
     max-width: 100%;

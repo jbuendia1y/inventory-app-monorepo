@@ -1,17 +1,31 @@
-import { cloneElement } from "react";
 import "./card.scss";
-import type { CardBasicProps, CardImageProps } from "./interfaces";
 
-export default function Card(props: CardBasicProps) {
-  return <div className="card">{props.children}</div>;
+import { cloneElement } from "react";
+import type {
+  CardProps,
+  CardBasicProps,
+  CardImageProps,
+  CardBasicPropsAttributes,
+} from "./interfaces";
+
+export default function Card({ children, ...rest }: CardProps) {
+  return (
+    <div className="card" {...rest}>
+      {children}
+    </div>
+  );
 }
 
-export function CardImage({ image, alt }: CardImageProps) {
-  return <img className="card__image" src={image} alt={alt} />;
+export function CardImage({ image, alt, ...rest }: CardImageProps) {
+  return <img className="card__image" src={image} alt={alt} {...rest} />;
 }
 
-export function CardText(props: CardBasicProps) {
-  return <div className="card__text">{props.children}</div>;
+export function CardText({ children, ...rest }: CardBasicPropsAttributes) {
+  return (
+    <div className="card__text" {...rest}>
+      {children}
+    </div>
+  );
 }
 
 export function CardTitle(props: CardBasicProps) {
