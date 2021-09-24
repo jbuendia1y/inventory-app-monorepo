@@ -1,0 +1,56 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--bg-primary);
+  font-size: 20px;
+
+  box-shadow: var(--shadow-components);
+  border-radius: 5px;
+  padding: 10px;
+
+  &__field {
+    margin-bottom: 10px;
+
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    color: inherit;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    padding: 5px 10px;
+    font-size: 20px;
+
+    &:focus {
+      outline: 1px solid #7b7a7a;
+      box-shadow: var(--shadow-components);
+    }
+  }
+
+  &__error {
+    height: 5px;
+    margin: 0;
+
+    color: rgb(163, 0, 0);
+    font-size: 10px;
+    text-align: right;
+
+    &-hidden {
+      visibility: hidden;
+    }
+  }
+}
