@@ -1,0 +1,51 @@
+.button {
+  background-color: var(--bg-primary);
+  border: 1px solid transparent;
+  border-radius: 6.5px;
+
+  box-shadow: 2px 2px 8px #c4c3c3;
+  padding: 8px 15px;
+
+  font-size: 1rem;
+
+  &-primary {
+    background-color: var(--bg-primary);
+  }
+
+  &-secondary {
+    background-color: var(--bg-secondary);
+  }
+
+  &-danger {
+    background-color: #bb0303;
+    color: #fff;
+  }
+
+  &-warning {
+    background-color: #ddd900;
+  }
+
+  &-success {
+    background-color: #06aa00;
+    color: #fff;
+  }
+
+  transition: filter 0.5s, transform 0.2s;
+  &:hover {
+    filter: brightness(0.9);
+  }
+
+  &:active {
+    transform: scale(1.085);
+  }
+
+  &:disabled {
+    color: gray;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .button {
+    cursor: pointer;
+  }
+}
