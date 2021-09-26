@@ -1,0 +1,15 @@
+.main-not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 800px;
+  height: 85vh;
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.title {
+  font-size: 45px;
+}
