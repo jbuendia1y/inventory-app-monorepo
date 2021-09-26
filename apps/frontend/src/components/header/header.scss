@@ -1,0 +1,14 @@
+.header {
+  background-color: var(--bg-secondary);
+  box-shadow: 0 -3.5px 12px black;
+
+  &-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__image {
+    height: 25px;
+  }
+}
