@@ -1,13 +1,30 @@
 import "./App.scss";
-import Header from "./components/Header";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
 import Routes from "./components/Routes";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
-      <Routes />
-    </div>
+      <div className="app-box">
+        {/* <div className="app__aside">
+          <div className="aside__user">
+            <img src="https://picsum.photos/536/354" alt="profile of User" />
+            <span>lorem</span>
+          </div>
+          <ul>
+            <li>lorem /////</li>
+          </ul>
+          <ul>
+            <li>lorem</li>
+            <li>lorem /////</li>
+          </ul>
+        </div> */}
+        <Routes />
+      </div>
+      <Footer />
+    </>
   );
 }
 
