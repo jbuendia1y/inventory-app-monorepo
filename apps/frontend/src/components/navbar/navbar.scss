@@ -79,8 +79,12 @@
     }
 
     &__list {
+      align-items: unset;
       box-shadow: none;
       margin-bottom: 0;
+
+      transition: none;
+      transform: none;
     }
 
     &__icon {
