@@ -1,0 +1,60 @@
+.sidenav {
+  display: none;
+  width: 25%;
+  max-width: 200px;
+  min-width: 180px;
+
+  background-color: var(--bg-primary);
+  box-shadow: -3px -8px 8px black;
+
+  &-box {
+    position: sticky;
+    top: 44px;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+
+    img {
+      width: 35px;
+      height: 35px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    span {
+      display: inline-block;
+      margin-left: 7px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding-left: 0;
+    padding: 5px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-top: 1px solid var(--bg-secondary);
+
+    &:nth-last-child(1) {
+      border-bottom: 1px solid var(--bg-secondary);
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+
+    padding: 5px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .sidenav {
+    display: inline-block;
+  }
+}
