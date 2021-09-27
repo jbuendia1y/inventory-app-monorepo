@@ -14,38 +14,10 @@
   width: 300px;
 }
 
-.app {
-  &__aside {
-    display: none;
-    width: 25%;
-    max-width: 360px;
-    min-width: 300px;
-  }
-
-  &-box {
-    display: flex;
-  }
-}
-
-.aside {
-  &__user {
-    display: flex;
-    align-items: center;
-
-    img {
-      width: 40px;
-      height: 40px;
-
-      object-fit: cover;
-      border-radius: 50%;
-    }
-  }
-}
-
-@media screen and (min-width: 1100px) {
+@media screen and(min-width:900px) {
   .app {
-    &__aside {
-      display: block;
+    &-box {
+      display: flex;
     }
   }
 }
