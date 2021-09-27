@@ -5,7 +5,7 @@ export function NavItemList({ url, image, children }: navItemListProps) {
   return (
     <li className="nav__item">
       <Link className="nav__link" to={url}>
-        {image && <img src={image} alt={children} />}
+        {typeof image === "string" ? <img src={image} alt={children} /> : image}
         {children}
       </Link>
     </li>

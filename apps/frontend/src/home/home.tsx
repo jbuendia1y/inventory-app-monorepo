@@ -13,7 +13,7 @@ export default function Home() {
           content="Web creada para la administración básica de su inventario"
         />
       </Helmet>
-      <main>
+      <main className="home">
         <Main />
         <UIComponents />
       </main>

@@ -2,9 +2,23 @@ import { createRef } from "react";
 import "./form.scss";
 import type { FormProps, FormInputProps } from "./interfaces";
 
-export default function Form({ children, ...rest }: FormProps) {
+export default function Form({ children, validate, ...rest }: FormProps) {
+  const formRef = createRef<HTMLFormElement>();
   return (
-    <form className="form" {...rest}>
+    <form
+      className="form"
+      ref={formRef}
+      onSubmit={(e) => {
+        if (validate) e.preventDefault();
+        const formData = new FormData(e.target as any);
+        const data: any = {};
+        formData.forEach((value: any, key: any) => {
+          data[key] = value;
+        });
+        if (validate) validate(data);
+      }}
+      {...rest}
+    >
       {children}
     </form>
   );

@@ -11,6 +11,7 @@ export interface FormBasicProps {
 
 export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: JSX.Element | JSX.Element[];
+  validate?: (formData: any) => void;
 }
 
 export interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {

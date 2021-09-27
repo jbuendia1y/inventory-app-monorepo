@@ -1,13 +1,14 @@
 import "./navbar.scss";
-import MenuIcon from "./icons/menu-icon.svg";
-import HomeIcon from "./icons/home.svg";
-import ConfigurationIcon from "./icons/settings-icon.svg";
-import LoginIcon from "./icons/login-icon.svg";
-import LogoutIcon from "./icons/logout-icon.svg";
 
-import { Link } from "react-router-dom";
 import { NavItemList } from "./components/NavItemList";
 import { createRef } from "react";
+import {
+  ConfigurationIcon,
+  HomeIcon,
+  LoginIcon,
+  LogoutIcon,
+  MenuIcon,
+} from "../icons/icons";
 
 const withoutAuth = () => {
   return (
@@ -15,11 +16,7 @@ const withoutAuth = () => {
       <NavItemList url="/login" image={LoginIcon}>
         Iniciar Sessión
       </NavItemList>
-      <li className="nav__item">
-        <Link to="/" className="nav__link">
-          Register
-        </Link>
-      </li>
+      <NavItemList url="/register">Register</NavItemList>
     </>
   );
 };
