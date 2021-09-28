@@ -1,0 +1,29 @@
+.table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+
+  &__head {
+    background-color: var(--bg-primary);
+    border-bottom: 3px solid var(--text-color);
+
+    th {
+      background-color: inherit;
+      padding: 10px 0;
+    }
+  }
+
+  &__body {
+    background-color: var(--bg-secondary);
+
+    .table__row {
+      &:nth-child(2n) {
+        background-color: var(--bg-primary);
+      }
+      td {
+        background-color: inherit;
+        padding: 8px 5px;
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import "./App.scss";
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
-import Routes from "./components/routes/Routes";
-import Sidenav from "./components/sidenav/sidenav";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Routes from "./components/Routes";
+import Sidenav from "./components/Sidenav";
 
 function App() {
   return (
