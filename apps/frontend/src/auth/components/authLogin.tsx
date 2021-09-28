@@ -1,13 +1,13 @@
-import { Helmet } from "react-helmet";
 import Button from "src/components/button/Button";
 import Form, { FormInput } from "src/components/form/Form";
+import Seo from "src/components/seo/seo";
 
 export default function AuthLogin() {
   return (
     <>
-      <Helmet>
+      <Seo>
         <title>Login | Inventory App</title>
-      </Helmet>
+      </Seo>
       <Form
         validate={(data) => {
           console.log(data.email);
