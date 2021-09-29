@@ -2,21 +2,20 @@ import "./table.scss";
 
 import {
   TableBodyProps,
+  TableFooterProps,
   TableHeadProps,
   TableProps,
   TableRowProps,
 } from "./interfaces";
-import { createRef } from "react";
 
-export default function Table({ children, className, ...rest }: TableProps) {
-  const tableRef = createRef<HTMLTableElement>();
-
+export default function Table({
+  children,
+  className = "",
+  caption = "bottom",
+  ...rest
+}: TableProps) {
   return (
-    <table
-      className={`table ${className ? className : ""}`}
-      ref={tableRef}
-      {...rest}
-    >
+    <table className={`table ${className} caption-${caption}`} {...rest}>
       {children}
     </table>
   );
@@ -43,5 +42,17 @@ export function TableRow({ children, className, ...rest }: TableRowProps) {
     <tr className={`table__row ${className ? className : ""}`} {...rest}>
       {children}
     </tr>
+  );
+}
+
+export function TableFooter({
+  children,
+  className = "",
+  ...rest
+}: TableFooterProps) {
+  return (
+    <tfoot className={`table__footer ${className}`} {...rest}>
+      {children}
+    </tfoot>
   );
 }

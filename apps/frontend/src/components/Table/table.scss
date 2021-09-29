@@ -3,6 +3,20 @@
   border: none;
   border-collapse: collapse;
 
+  &.caption-bottom {
+    caption-side: bottom;
+  }
+
+  &.caption-top {
+    caption-side: top;
+  }
+
+  caption {
+    padding: 5px;
+    color: var(--secondary-text);
+    text-align: left;
+  }
+
   &__head {
     background-color: var(--bg-primary);
     border-bottom: 3px solid var(--text-color);
@@ -15,15 +29,20 @@
 
   &__body {
     background-color: var(--bg-secondary);
+  }
 
-    .table__row {
-      &:nth-child(2n) {
-        background-color: var(--bg-primary);
-      }
-      td {
-        background-color: inherit;
-        padding: 8px 5px;
-      }
+  .table__row {
+    border-bottom: 0.5px solid var(--bg-secondary);
+    &:nth-child(2n + 1) {
+      background-color: var(--bg-primary);
     }
+    td {
+      background-color: inherit;
+      padding: 8px 5px;
+    }
+  }
+
+  &__footer {
+    border-top: 2.25px solid var(--text-color);
   }
 }
