@@ -1,7 +1,18 @@
 :root {
   --bg-primary: #fff;
   --bg-secondary: #e3e3e3;
+
+  --bg-primary-rgb: 255, 255, 255;
+  --bg-secondary-rgb: 227, 227, 227;
+
+  --text-color: black;
+  --secondary-text: rgb(156, 156, 156);
+
   --shadow-components: 1px 1px 10px rgba(170, 170, 170, 0.8);
+}
+
+body {
+  color: var(--text-color);
 }
 
 .container {
